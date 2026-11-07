@@ -1,0 +1,27 @@
+# EyeCLIP — Python environment for a free-tier Colab T4 runtime.
+# Colab preinstalls torch/torchvision/numpy/pandas/scikit-learn/matplotlib,
+# so this file mainly documents the environment for reproducibility and
+# for running outside Colab.
+# VERIFY the versions you actually get (pip show <pkg>); after the first
+# fully successful run, freeze exact versions and commit them too:
+#   pip freeze > requirements-lock.txt
+
+# ── Deep learning (frozen encoders only — no fine-tuning) ──
+torch>=2.2
+torchvision>=0.17
+open_clip_torch>=2.20        # OpenCLIP model zoo
+transformers>=4.40           # HF-hosted CLIP/SigLIP-family towers, if used
+# If Stage 2 ends up using the original OpenAI CLIP package instead:
+#   pip install git+https://github.com/openai/CLIP.git    # VERIFY at Stage 2
+
+# ── Experiments on cached embeddings (CPU only) ──
+numpy>=1.26
+scikit-learn>=1.4
+pandas>=2.0
+tqdm>=4.66
+
+# ── Utilities ──
+pillow>=10.0
+ftfy>=6.1                    # text normalisation used by CLIP-style pipelines
+regex>=2023.12               # tokenizer dependency of the original CLIP repo
+matplotlib>=3.8              # optional figures
