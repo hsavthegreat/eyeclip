@@ -11,17 +11,21 @@ torch>=2.2
 torchvision>=0.17
 open_clip_torch>=2.20        # OpenCLIP model zoo
 transformers>=4.40           # HF-hosted CLIP/SigLIP-family towers, if used
-# If Stage 2 ends up using the original OpenAI CLIP package instead:
-#   pip install git+https://github.com/openai/CLIP.git    # VERIFY at Stage 2
+
 
 # ── Experiments on cached embeddings (CPU only) ──
 numpy>=1.26
 scikit-learn>=1.4
 pandas>=2.0
+matplotlib
 tqdm>=4.66
-
+timm
 # ── Utilities ──
 pillow>=10.0
 ftfy>=6.1                    # text normalisation used by CLIP-style pipelines
 regex>=2023.12               # tokenizer dependency of the original CLIP repo
 matplotlib>=3.8              # optional figures
+
+
+
+
