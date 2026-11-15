@@ -1,0 +1,36 @@
+{
+  "model": "CLIP ViT-B/16 (ViT-B-16-quickgelu, OpenAI weights)",
+  "model_key": "clip_vit_b_16_openai",
+  "pretrained": "openai",
+  "classes": [
+    "WNL",
+    "DR",
+    "CRS",
+    "RT"
+  ],
+  "classifier": "logistic regression, C=1.0, max_iter=1000, fitted on the support set only",
+  "prototype": "cosine similarity to the L2-normalised mean of that class's support embeddings",
+  "reference": {
+    "split": "train",
+    "single_label": true,
+    "n": 228
+  },
+  "support": {
+    "seed": 0,
+    "shot": 10,
+    "n": 40
+  },
+  "uncertainty": {
+    "rule": "flag for expert review when the classifier's top class confidence is below the 20th percentile of the support-set confidences (Cell 8's rule)",
+    "percentile": 20,
+    "threshold": 0.29626,
+    "support_confidences": "in-sample",
+    "note": "Here the support confidences come from the same 40 images the classifier was fitted on, so they are optimistic and this threshold is lower (flags less often) than Cell 8's, where they are 5-fold out-of-fold."
+  },
+  "ood": {
+    "rule": "warn when the top-1 cosine similarity to any reference image is below the 5th percentile of each reference image's cosine similarity to its nearest OTHER reference image",
+    "percentile": 5,
+    "threshold": 0.960879
+  },
+  "license": "RFMiD 2.0, CC BY 4.0; thumbnails are 224 px derivatives, see ATTRIBUTION.md"
+}
