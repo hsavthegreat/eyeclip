@@ -1,0 +1,10 @@
+# Demo only. CPU build of torch: the CPU index is listed first so no CUDA wheels are pulled in.
+--index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://pypi.org/simple
+torch>=2.0
+open_clip_torch>=2.24
+streamlit>=1.30
+pillow
+numpy
+scikit-learn
+pandas

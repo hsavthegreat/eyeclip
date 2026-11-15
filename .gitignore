@@ -28,6 +28,8 @@ checkpoints/
 *.safetensors
 *.h5
 # Note: results/*.csv (small summary tables) ARE tracked on purpose.
+# Exception: the demo's derived assets are small and committed so app/ runs from a clean clone.
+!app/assets/*.npz
 
 # ── Google Drive / Colab VM paths (safety net — never commit these) ──
 drive/
