@@ -192,5 +192,37 @@ The bootstrap CIs in `results/bootstrap_ci.csv` depend on eval-row order (resamp
 reproduce exactly only if `predictions.csv` is read in its saved row order; sorting the rows before resampling
 shifts the interval bounds by up to about 0.006.
 
+## Run the demo
+A Streamlit app that shows an uploaded fundus photograph's similarity to four reference classes, using a
+logistic-regression classifier fitted on the 40-image seed-0 10-shot support set. It runs on CPU from a clean
+clone: the committed assets in `app/assets/` (CLIP ViT-B/16 embeddings for 228 RFMiD train images, the support
+set, 224 px thumbnails, `meta.json`) mean no dataset download and no GPU are needed. The uploaded image is
+processed in memory and never written to disk.
+
+```bash
+python -m venv .venv && . .venv/bin/activate
+pip install -r requirements-demo.txt      # CPU torch, streamlit, open_clip
+streamlit run app/streamlit_app.py        # then open the printed localhost URL
+```
+
+On first launch open_clip downloads the ~350 MB ViT-B/16 weights from Hugging Face; after that the app starts
+offline. The app reports a *Closest reference class* with an uncalibrated confidence, per-class cosine
+similarities explicitly labelled "Similarity (not a probability)", the five most similar reference images, a
+"Flag for expert review" banner when confidence is below the Cell 8 threshold, and an out-of-distribution
+warning when the top-1 similarity is below the 5th percentile of reference-to-reference nearest-neighbour
+similarity. The thresholds live in `app/assets/meta.json` with the rule they came from: the demo's support
+confidences are in-sample (the classifier is fitted on those same 40 images), so its threshold is optimistic
+and flags less often than Cell 8's out-of-fold version.
+
+To rebuild the assets where the images and cached embeddings exist:
+
+```bash
+python scripts/export_demo_assets.py --data-root /path/to/RFMiD2_0 \
+    --embeddings-dir /path/to/embeddings --manifests-dir manifests --out app/assets
+```
+
+The thumbnails are 224 px derivatives of RFMiD 2.0 images and are redistributed under its CC BY 4.0 licence;
+`app/assets/ATTRIBUTION.md` carries the citation and is written by the export script.
+
 ## Licences
 Code: MIT. Data: see DATASETS.md.
