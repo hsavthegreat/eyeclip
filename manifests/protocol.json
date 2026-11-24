@@ -1,5 +1,5 @@
 {
-  "written": "2026-11-08",
+  "written": "2026-11-24",
   "image_id_column": "ID",
   "label_protocol": "experiments use exactly-one-positive rows only; single-label; closed world over MAIN classes",
   "splits": {
@@ -44,5 +44,5 @@
     "per-class recall (always reported together with per-class evaluation counts)"
   ],
   "support_sampling": "per seed: numpy random.default_rng(seed), classes in sorted order; support = first k images of one fixed permutation (nested across shots)",
-  "cache_policy": "embeddings cached for ALL images that have both a label row and an image file, label-agnostic (expected 856); class filtering happens at experiment time; stems matched globally across split folders"
+  "cache_policy": "embeddings cached for all 854 label-image matches in manifest_cache.csv, label-agnostic; matching is split-folder-aware and class filtering happens at experiment time"
 }

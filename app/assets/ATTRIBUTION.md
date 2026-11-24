@@ -11,5 +11,7 @@ The thumbnails in `thumbs/` are 224 px derivatives of retinal fundus photographs
 - The dataset is **not** redistributed here: only the 228 reduced thumbnails needed by the demo are
   included, and the licence requires the attribution above to accompany them.
 
-The embedding arrays (`reference.npz`, `support.npz`) are derived features computed with OpenAI's
-CLIP ViT-B/16 weights (MIT licence) and carry no image content beyond 512-dimensional vectors.
+The embedding arrays (`reference.npz`, `support.npz`) contain 512-dimensional features derived from
+source images with OpenAI CLIP ViT-B/16. They are not image files, but remain derived data and should
+be handled in line with the dataset and model terms. See [`DATASETS.md`](../../DATASETS.md) for the
+model-source license notes.
