@@ -1,10 +1,15 @@
 [theme]
 base = "light"
-primaryColor = "#0EA5B7"
-backgroundColor = "#F7FAFC"
+primaryColor = "#0E9FAD"
+backgroundColor = "#F5F8FC"
 secondaryBackgroundColor = "#FFFFFF"
-textColor = "#0B1B3A"
-font = "sans serif"
+textColor = "#17243B"
+borderColor = "#DCE4EF"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+headingFont = "Manrope:https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"
+baseRadius = "10px"
+paddingTop = "2rem"
+paddingBottom = "2rem"
 
 [client]
 toolbarMode = "viewer"

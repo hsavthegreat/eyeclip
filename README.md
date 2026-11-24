@@ -6,8 +6,7 @@ labelled examples per class? Not a diagnostic tool; no clinical validation.
 ## Status
 **Done:** data audit and matching, fixed evaluation protocol, frozen embeddings for 3 models, few-shot evaluation
 (4 classes); per-image predictions, bootstrap CIs, selective prediction, retrieval and a nearest-neighbour
-near-duplicate audit (cell 8 of the notebook); cross-dataset test on FIVES, WNL vs DR (cells 10-12).
-**Planned:** Streamlit demo.
+near-duplicate audit (cell 8 of the notebook); cross-dataset test on FIVES, WNL vs DR (cells 10-12); Streamlit demo.
 
 ## Corrections
 **14 November 2026 — support-sampling bug in cell 5.** The support lookup selected every row for a seed
